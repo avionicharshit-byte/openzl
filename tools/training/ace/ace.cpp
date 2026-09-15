@@ -359,9 +359,7 @@ std::vector<SerializedCompressorInternal> ACETrainer::train(
             const auto graphsLeft = numGraphs - graphIdx + 1;
             maxTime               = std::chrono::seconds(
                     std::max<int64_t>(
-                            1,
-                            (remaining.count() + int64_t(graphsLeft) - 1)
-                                    / int64_t(graphsLeft)));
+                            1, remaining.count() / int64_t(graphsLeft)));
         }
 
         AutomatedCompressorExplorer ace(

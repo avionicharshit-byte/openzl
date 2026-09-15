@@ -435,7 +435,8 @@ TEST(ACETrainerTest, MaxTimeSecsIsSharedAcrossAceGraphs)
     const auto allGraphs =
             timeAceTraining(kNumGraphs, kRecordsPerGraph, kMaxTimeSecs);
 
-    // Half of what an unshared budget would cost.
+    // Half the cost of running all 8 graphs which each individually receive
+    // the full time budget.
     const auto budget = oneGraph * int64_t(kNumGraphs) / 2;
     EXPECT_LT(allGraphs, budget)
             << "ACE training over " << kNumGraphs << " graphs took "
